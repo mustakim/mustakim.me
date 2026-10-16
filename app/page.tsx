@@ -265,59 +265,80 @@ export default function Portfolio() {
               </li>
             ))}
           </ul>
-          <a href="#contact" className="rounded-full bg-white px-4 py-1.5 text-xs font-semibold text-black transition hover:scale-105">
-            Let’s talk
-          </a>
         </nav>
       </header>
 
       <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6">
         {/* ───────── HERO ───────── */}
-        <section id="top" className="flex min-h-screen flex-col justify-center pb-16 pt-32">
+        <section id="top" className="pb-16 pt-24 sm:pt-28">
           <Reveal>
-            <span className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-4 py-1.5 text-xs font-medium text-emerald-300">
-              <span className="h-2 w-2 rounded-full bg-emerald-400" style={{ animation: "pulse-ring 1.6s infinite" }} />
-              Open to international relocation
-            </span>
-          </Reveal>
-          <Reveal delay={100}>
-            <h1 className="mt-6 text-5xl font-black leading-[1.02] tracking-tight sm:text-7xl lg:text-8xl">
-              Shah Abdul <br />
-              <span className="gradient-text">Mustakim</span>
-            </h1>
-          </Reveal>
-          <Reveal delay={200}>
-            <p className="mt-6 flex flex-wrap items-center gap-x-3 text-lg font-medium text-white/80 sm:text-2xl">
-              <span key={roleIdx} style={{ animation: "roleIn .6s ease-out" }} className="text-cyan-300">{ROLES[roleIdx]}</span>
-            </p>
-            <p className="mt-2 hidden text-sm text-white/40 sm:block">
-              Staff Software Engineer&nbsp;|&nbsp;System Architect&nbsp;|&nbsp;Mobile &amp; Web Engineering Leader
-            </p>
-          </Reveal>
-          <Reveal delay={300}>
-            <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/60 sm:text-lg">
-              Architecting high-scale distributed systems, real-time IoT pipelines, and AI-driven enterprise platforms
-              with 8+ years of engineering leadership.
-            </p>
-          </Reveal>
-          <Reveal delay={400} className="mt-9 flex flex-wrap gap-3">
-            <a href="#projects" className="group relative inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-violet-500 to-cyan-500 px-6 py-3 text-sm font-semibold shadow-[0_0_0_0_rgba(139,92,246,0)] transition-all hover:shadow-[0_0_40px_6px_rgba(139,92,246,0.45)] hover:scale-[1.03]">
-              View Projects <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-            </a>
-            <a href={LINKS.resume} download className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold backdrop-blur transition hover:bg-white/10">
-              <Download className="h-4 w-4" /> Download Resume
-            </a>
-            <a href={LINKS.linkedin} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold backdrop-blur transition hover:bg-[#0a66c2]/30">
-              <LinkedinIcon /> LinkedIn
-            </a>
-            <a href={LINKS.github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold backdrop-blur transition hover:bg-white/15">
-              <GithubIcon /> GitHub
-            </a>
+            <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] text-white shadow-[0_30px_120px_-30px_rgba(139,92,246,0.5)] backdrop-blur-xl sm:rounded-[2.5rem]">
+              {/* soft brand glow behind the portrait */}
+              <div className="pointer-events-none absolute bottom-0 left-1/2 z-[15] h-[70%] w-[55%] -translate-x-1/2 rounded-full bg-gradient-to-t from-violet-500/50 via-cyan-400/25 to-transparent blur-3xl" />
+              {/* top bar */}
+              <div className="relative z-30 flex items-center justify-between gap-3 px-5 pt-5 sm:px-8 sm:pt-7">
+                <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-medium text-white backdrop-blur sm:text-sm">
+                  <span className="h-2 w-2 rounded-full bg-emerald-500" style={{ animation: "pulse-ring 1.6s infinite" }} />
+                  Open to relocation
+                </span>
+                <a href="#contact" className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-xs font-semibold text-black shadow-lg transition hover:scale-105 sm:text-sm">
+                  Let’s Talk <ArrowUpRight className="h-4 w-4" />
+                </a>
+              </div>
+
+              {/* giant name behind portrait */}
+              <h1 className="pointer-events-none relative z-10 mt-6 select-none px-4 text-center font-normal uppercase [font-family:var(--font-display)] leading-[0.9] tracking-tighter sm:mt-10">
+                <span className="block whitespace-nowrap text-[11vw] tracking-normal text-transparent [-webkit-text-stroke:2px_rgba(255,255,255,0.85)] sm:text-[8.5vw] lg:text-[8rem]">Shah Abdul</span>
+                <span className="gradient-text block whitespace-nowrap text-[11vw] sm:text-[8.5vw] lg:text-[8rem]">Mustakim</span>
+              </h1>
+
+              {/* portrait — your original photo with the background removed */}
+              <div className="relative z-20 -mt-[8vw] flex justify-center sm:-mt-[5vw] lg:-mt-16">
+                <img
+                  src="/mustakim-cutout.webp"
+                  alt="Shah Abdul Mustakim"
+                  width={1254}
+                  height={1254}
+                  className="h-auto w-[78vw] max-w-[640px] sm:w-[48vw]"
+                  style={{
+                    WebkitMaskImage: "linear-gradient(to right, transparent 0, #000 14%, #000 86%, transparent 100%)",
+                    maskImage: "linear-gradient(to right, transparent 0, #000 14%, #000 86%, transparent 100%)",
+                  }}
+                />
+              </div>
+
+              {/* bottom-left copy */}
+              <div className="relative z-30 px-5 pb-6 sm:absolute sm:bottom-8 sm:left-8 sm:max-w-[26%] sm:px-0 sm:pb-0 lg:bottom-10 lg:left-10">
+                <p key={roleIdx} style={{ animation: "roleIn .6s ease-out" }} className="text-xl font-bold leading-tight sm:text-2xl">{ROLES[roleIdx]}</p>
+                <p className="mt-2 text-sm leading-relaxed text-white/60">
+                  Architecting high-scale distributed systems, real-time IoT pipelines and AI-driven enterprise platforms — 8+ years of engineering leadership.
+                </p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  <a href="#projects" className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-violet-500 to-cyan-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg transition hover:shadow-[0_0_30px_4px_rgba(139,92,246,0.5)]">
+                    View Projects <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  </a>
+                </div>
+              </div>
+
+              {/* bottom-right social pills */}
+              <div className="relative z-30 flex flex-wrap gap-2 px-5 pb-6 sm:absolute sm:bottom-8 sm:right-8 sm:w-44 sm:flex-col sm:items-stretch sm:px-0 sm:pb-0 lg:bottom-10 lg:right-10">
+                {[
+                  { l: "LinkedIn", h: LINKS.linkedin, i: <LinkedinIcon /> },
+                  { l: "GitHub", h: LINKS.github, i: <GithubIcon /> },
+                  { l: "Resume", h: LINKS.resume, i: <Download className="h-4 w-4" />, d: true },
+                ].map((s) => (
+                  <a key={s.l} href={s.h} target={s.d ? undefined : "_blank"} rel="noreferrer" download={s.d || undefined}
+                     className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2.5 text-sm font-semibold text-white backdrop-blur transition hover:-translate-y-0.5 hover:bg-white/20">
+                    {s.i} {s.l}
+                  </a>
+                ))}
+              </div>
+            </div>
           </Reveal>
 
-          <div className="mt-16 grid gap-3 sm:grid-cols-3">
+          <div className="mt-6 grid gap-3 sm:grid-cols-3">
             {STATS.map((s, i) => (
-              <Reveal key={s.label} delay={500 + i * 100}>
+              <Reveal key={s.label} delay={200 + i * 100}>
                 <Spot className="p-5">
                   <div className="text-3xl font-black gradient-text">{s.value}</div>
                   <div className="mt-1 text-sm text-white/60">{s.label}</div>
@@ -397,14 +418,14 @@ export default function Portfolio() {
         {/* ───────── EXPERIENCE ───────── */}
         <section id="experience" className="py-24">
           <SectionTitle kicker="Experience" title="Where I’ve shipped." />
-          <div className="relative space-y-4 pl-6 sm:pl-10">
-            <div className="absolute bottom-2 left-[7px] top-2 w-px bg-gradient-to-b from-violet-500 via-cyan-400 to-transparent sm:left-[15px]" />
+          <div className="relative space-y-4 pl-8 sm:pl-10">
+            <div className="absolute bottom-2 left-2 top-2 w-px -translate-x-1/2 bg-gradient-to-b from-violet-500 via-cyan-400 to-transparent" />
             {EXPERIENCE.map((x, i) => {
               const isOpen = open === i;
               return (
                 <Reveal key={x.company} delay={i * 100}>
                   <div className="relative">
-                    <span className={`absolute -left-6 top-7 h-3.5 w-3.5 rounded-full border-2 border-[#05050a] sm:-left-10 sm:h-4 sm:w-4 ${isOpen ? "bg-cyan-400 shadow-[0_0_14px_#22d3ee]" : "bg-white/30"}`} />
+                    <span className={`absolute -left-8 top-7 h-4 w-4 rounded-full border-2 border-[#05050a] sm:-left-10 ${isOpen ? "bg-cyan-400 shadow-[0_0_14px_#22d3ee]" : "bg-white/30"}`} />
                     <Spot>
                       <button onClick={() => setOpen(isOpen ? -1 : i)} className="flex w-full items-center justify-between gap-4 p-6 text-left" aria-expanded={isOpen}>
                         <div>

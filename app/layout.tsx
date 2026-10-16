@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
+import { Archivo_Black } from "next/font/google";
 import "./globals.css";
+
+const display = Archivo_Black({ weight: "400", subsets: ["latin"], variable: "--font-display" });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://mustakim.me"),
@@ -12,7 +15,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={display.variable}>{children}</body>
     </html>
   );
 }
